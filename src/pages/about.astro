@@ -1,5 +1,16 @@
 ---
 const pageTitle = "About Me"
+
+const indentity = {
+	firstName: "Mateusz",
+	country: "Poland",
+	occupation: "Viber Coder xD",
+	hobbies: ["steet workout","programming","sexting"]
+}
+const skills = ["HTML","CSS","JavaScript","Make.com","n8n","ComfyUI","Python"]
+const happy = true
+const finished = false
+const goal = 4
 ---
 
 <html lang="en">
@@ -22,6 +33,21 @@ const pageTitle = "About Me"
          <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
 
         <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+
+		<p>Here are some facts about me:</p>
+		<ul>
+			<li>My name is {indentity.firstName}</li>
+			<li>I live in {indentity.country} and I work as a {indentity.occupation}</li>
+			{indentity.hobbies.length >= 2 &&
+				<li>Two of my hobbies are {indentity.hobbies[0]} and {indentity.hobbies[1]}</li>}
+		</ul>
+		<p>My skills are:</p>
+		<ul>
+			{skills.map(skill => <li>{skill}</li>)}
+		</ul>
+		{happy && <p>I'm happy to be learning Astra</p>}
+		{finished && <p>I finished this tutorial</p>}
+		{goal===3 ? <p>My goal is to finished in 3 days</p> : <p>Not 3 days</p>}
 
 	</body>
 </html>
